@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
-using Application = Xamarin.Forms.Application;
+//using Application = Xamarin.Forms.Application;
 using atomex.CustomElements;
 using atomex.Resources;
 using atomex.Helpers;
 using CurrenciesPage = atomex.Views.BuyCurrency.CurrenciesPage;
-using NavigationPage = Xamarin.Forms.NavigationPage;
+//using NavigationPage = Xamarin.Forms.NavigationPage;
 using atomex.Views.CreateSwap;
 using Atomex.Core;
 //using Xamarin.CommunityToolkit.UI.Views.Options;
+using CommunityToolkit.Maui.Views;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CommunityToolkit.Maui.Extensions;
@@ -29,6 +30,7 @@ using Microsoft.Maui.Graphics;
 using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui;
+using Application = Microsoft.Maui.Controls.Application;
 
 namespace atomex.Views
 {
