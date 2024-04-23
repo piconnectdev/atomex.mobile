@@ -15,6 +15,7 @@ using Atomex.Wallet.Tezos;
 using Serilog;
 using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {
@@ -157,26 +158,26 @@ namespace atomex.ViewModels.CurrencyViewModels
                 tokenContract: fa2Currency?.TokenContractAddress);
         }
 
-        protected override async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
-        {
-            try
-            {
-                var tezosTokenConfig = (TezosTokenConfig) Currency;
+        //protected override async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
+        //{
+        //    try
+        //    {
+        //        var tezosTokenConfig = (TezosTokenConfig) Currency;
 
-                if (!args.IsTokenUpdate ||
-                    args.TokenContract != null && (args.TokenContract != tezosTokenConfig.TokenContractAddress ||
-                                                   args.TokenId != tezosTokenConfig.TokenId)) return;
+        //        if (!args.IsTokenUpdate ||
+        //            args.TokenContract != null && (args.TokenContract != tezosTokenConfig.TokenContractAddress ||
+        //                                           args.TokenId != tezosTokenConfig.TokenId)) return;
 
-                await Task.Run(async () =>
-                {
-                    await UpdateBalanceAsync();
-                    await LoadTransactionsAsync();
-                });
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "Account balance updated event handler error");
-            }
-        }
+        //        await Task.Run(async () =>
+        //        {
+        //            await UpdateBalanceAsync();
+        //            await LoadTransactionsAsync();
+        //        });
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log.Error(e, "Account balance updated event handler error");
+        //    }
+        //}
     }
 }

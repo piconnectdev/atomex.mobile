@@ -6,6 +6,7 @@ using atomex.Views;
 using Atomex.Blockchain;
 using Atomex.Blockchain.Abstract;
 using Atomex.Core;
+using Atomex.Wallets.Abstract;
 using ReactiveUI;
 using Xamarin.Essentials;
 
@@ -19,11 +20,11 @@ namespace atomex.ViewModels.TransactionViewModels
         public Action<string> CopyAddress { get; set; }
         public Action<string> CopyTxId { get; set; }
 
-        public IBlockchainTransaction Transaction { get; set; }
+        public ITransaction Transaction { get; set; }
         public string Id { get; set; }
         public CurrencyConfig Currency { get; set; }
-        public BlockchainTransactionState State { get; set; }
-        public BlockchainTransactionType Type { get; set; }
+        public TransactionStatus Status { get; set; }
+        public TransactionType Type { get; set; }
 
         public string Description { get; set; }
         public decimal Amount { get; set; }
@@ -46,7 +47,7 @@ namespace atomex.ViewModels.TransactionViewModels
         }
 
         public TransactionViewModel(
-            IBlockchainTransaction tx,
+            ITransaction tx,
             CurrencyConfig currencyConfig,
             decimal amount,
             decimal fee,
@@ -55,7 +56,7 @@ namespace atomex.ViewModels.TransactionViewModels
             Transaction = tx ?? throw new ArgumentNullException(nameof(tx));
             Id = Transaction.Id;
             Currency = currencyConfig;
-            State = Transaction.State;
+            Status = Transaction.Status;
             Type = Transaction.Type;
             Amount = amount;
             Direction = amount switch
@@ -73,10 +74,10 @@ namespace atomex.ViewModels.TransactionViewModels
             CurrencyCode = currencyConfig.Name;
             FeeCode = currencyConfig.FeeCode;
             Time = tx.CreationTime ?? DateTime.UtcNow;
-            CanBeRemoved = tx.State == BlockchainTransactionState.Failed ||
-                           tx.State == BlockchainTransactionState.Pending ||
-                           tx.State == BlockchainTransactionState.Unknown ||
-                           tx.State == BlockchainTransactionState.Unconfirmed;
+            CanBeRemoved = tx.Status == TransactionStatus.Failed ||
+                           tx.Status == TransactionStatus.Pending ||
+                           //tx.Status == TransactionStatus.Unknown ||
+                           tx.Status == TransactionStatus.Failed;
 
             Description = GetDescription(
                 type: tx.Type,
@@ -89,41 +90,41 @@ namespace atomex.ViewModels.TransactionViewModels
         }
 
         public static string GetDescription(
-            BlockchainTransactionType type,
+            TransactionType type,
             decimal amount,
             decimal netAmount,
             int amountDigits,
             string currencyCode)
         {
-            if (type.HasFlag(BlockchainTransactionType.SwapPayment))
+            if (type.HasFlag(TransactionType.SwapPayment))
             {
                 return
                     $"{AppResources.TxSwapPayment} {Math.Abs(amount).ToString("0." + new string('#', amountDigits))} {currencyCode}";
             }
 
-            if (type.HasFlag(BlockchainTransactionType.SwapRefund))
+            if (type.HasFlag(TransactionType.SwapRefund))
             {
                 return
                     $"{AppResources.TxSwapRefund} {Math.Abs(netAmount).ToString("0." + new string('#', amountDigits))} {currencyCode}";
             }
 
-            if (type.HasFlag(BlockchainTransactionType.SwapRedeem))
+            if (type.HasFlag(TransactionType.SwapRedeem))
             {
                 return
                     $"{AppResources.TxSwapRedeem} {Math.Abs(netAmount).ToString("0." + new string('#', amountDigits))} {currencyCode}";
             }
 
-            if (type.HasFlag(BlockchainTransactionType.TokenApprove))
+            if (type.HasFlag(TransactionType.TokenApprove))
             {
                 return $"{AppResources.TxTokenApprove}";
             }
 
-            if (type.HasFlag(BlockchainTransactionType.TokenCall))
+            if (type.HasFlag(TransactionType.TokenTransfer))
             {
                 return $"{AppResources.TxTokenCall}";
             }
 
-            if (type.HasFlag(BlockchainTransactionType.SwapCall))
+            if (type.HasFlag(TransactionType.ContractCall))
             {
                 return $"{AppResources.TxSwapCall}";
             }

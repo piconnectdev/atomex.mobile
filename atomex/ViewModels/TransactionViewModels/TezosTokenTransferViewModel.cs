@@ -14,13 +14,13 @@ namespace atomex.ViewModels.TransactionViewModels
         private readonly TezosConfig _tezosConfig;
         public string Alias { get; set; }
 
-        public TezosTokenTransferViewModel(TokenTransfer tx, TezosConfig tezosConfig)
+        public TezosTokenTransferViewModel(TezosTokenTransfer tx, TezosConfig tezosConfig)
         {
             _tezosConfig = tezosConfig;
 
             Transaction = tx ?? throw new ArgumentNullException(nameof(tx));
             Id = tx.Id;
-            State = Transaction.State;
+            Status = Transaction.Status;
             Type = Transaction.Type;
             From = tx.From;
             To = tx.To;
@@ -43,11 +43,11 @@ namespace atomex.ViewModels.TransactionViewModels
                 currencyCode: tx.Token.Symbol);
         }
 
-        private static decimal GetAmount(TokenTransfer tx)
+        private static decimal GetAmount(TezosTokenTransfer tx)
         {
             if (tx.Amount.TryParseWithRound(tx.Token.Decimals, out var amount))
             {
-                var sign = tx.Type.HasFlag(BlockchainTransactionType.Input)
+                var sign = tx.Type.HasFlag(TransactionType.Input)
                     ? 1
                     : -1;
 

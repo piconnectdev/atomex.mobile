@@ -10,7 +10,7 @@ using atomex.Common;
 using atomex.Resources;
 using atomex.Views;
 using Atomex;
-using Atomex.Blockchain.BitcoinBased;
+using Atomex.Blockchain.Bitcoin;
 using Atomex.Common;
 using atomex.ViewModels.Abstract;
 using atomex.ViewModels.CurrencyViewModels;
@@ -57,7 +57,7 @@ namespace atomex.ViewModels.SendViewModels
                 .WaitForResult()
                 .Select(output => new OutputViewModel()
                 {
-                    Output = (BitcoinBasedTxOutput)output,
+                    Output = (BitcoinTxOutput)output,
                     Config = Config,
                     IsSelected = true
                 })
@@ -85,16 +85,16 @@ namespace atomex.ViewModels.SendViewModels
 
         private BitcoinBasedConfig Config => (BitcoinBasedConfig)Currency;
 
-        [Reactive] private IEnumerable<BitcoinBasedTxOutput> _outputs { get; set; }
+        [Reactive] private IEnumerable<BitcoinTxOutput> _outputs { get; set; }
 
         [Reactive] public decimal FeeRate { get; set; }
         public string FeeRateCode => "sat/byte";
 
         private BitcoinBasedAccount Account => App.Account.GetCurrencyAccount<BitcoinBasedAccount>(Currency.Name);
 
-        protected void ConfirmOutputs(SelectOutputsViewModel selectOutputsViewModel, IEnumerable<BitcoinBasedTxOutput> outputs)
+        protected void ConfirmOutputs(SelectOutputsViewModel selectOutputsViewModel, IEnumerable<BitcoinTxOutput> outputs)
         {
-            _outputs = new ObservableCollection<BitcoinBasedTxOutput>(outputs);
+            _outputs = new ObservableCollection<BitcoinTxOutput>(outputs);
 
             switch (selectOutputsViewModel?.SelectAddressFrom)
             {

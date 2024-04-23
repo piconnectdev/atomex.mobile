@@ -12,7 +12,7 @@ using atomex.Models;
 using atomex.Resources;
 using atomex.Views;
 using Atomex;
-using Atomex.Blockchain.BitcoinBased;
+using Atomex.Blockchain.Bitcoin;
 using Atomex.Core;
 using atomex.ViewModels.Abstract;
 using Atomex.Wallet.BitcoinBased;
@@ -20,6 +20,7 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Atomex.Wallets;
 
 namespace atomex.ViewModels
 {
@@ -36,7 +37,7 @@ namespace atomex.ViewModels
         [Reactive] public decimal SelectedFromBalance { get; set; }
         public BitcoinBasedConfig Currency { get; }
         private BitcoinBasedAccount _account;
-        public Action<SelectOutputsViewModel, IEnumerable<BitcoinBasedTxOutput>> ConfirmAction { get; set; }
+        public Action<SelectOutputsViewModel, IEnumerable<BitcoinTxOutput>> ConfirmAction { get; set; }
 
         public SelectOutputsViewModel()
         {
@@ -321,7 +322,7 @@ namespace atomex.ViewModels
     public class OutputViewModel : BaseViewModel
     {
         [Reactive] public bool IsSelected { get; set; }
-        public BitcoinBasedTxOutput Output { get; set; }
+        public BitcoinTxOutput Output { get; set; }
         public BitcoinBasedConfig Config { get; set; }
         public WalletAddress WalletAddress { get; set; }
         public Action<string> CopyAction { get; set; }

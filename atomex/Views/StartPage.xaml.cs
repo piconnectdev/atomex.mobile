@@ -11,6 +11,7 @@ using Xamarin.CommunityToolkit.UI.Views.Options;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.Views
 {

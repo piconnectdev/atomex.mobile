@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 
 using Atomex.Core;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {

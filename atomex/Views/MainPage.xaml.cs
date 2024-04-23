@@ -25,6 +25,7 @@ using static atomex.Models.SnackbarMessage;
 using Rg.Plugins.Popup.Services;
 using Rg.Plugins.Popup.Pages;
 using Serilog;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.Views
 {

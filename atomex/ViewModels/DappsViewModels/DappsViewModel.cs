@@ -7,7 +7,7 @@ using System.Reactive;
 using System.Threading.Tasks;
 using Atomex;
 using Atomex.Blockchain.Tezos;
-using Atomex.Blockchain.Tezos.Internal;
+using Atomex.Blockchain.Tezos.Abstract;
 using Atomex.Client.Common;
 using atomex.Common;
 using atomex.Models;

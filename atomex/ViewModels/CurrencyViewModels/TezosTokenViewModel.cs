@@ -30,6 +30,8 @@ using Serilog;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Atomex.Blockchain;
+using Atomex.Blockchain.Tezos.Tzkt;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {
@@ -446,38 +448,38 @@ namespace atomex.ViewModels.CurrencyViewModels
             }
         }
 
-        private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
-        {
-            try
-            {
-                if (!args.IsTokenUpdate ||
-                    args.TokenContract != null && (args.TokenContract != TokenBalance?.Contract ||
-                                                   args.TokenId != TokenBalance?.TokenId)) return;
+        //private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
+        //{
+        //    try
+        //    {
+        //        if (!args.IsTokenUpdate ||
+        //            args.TokenContract != null && (args.TokenContract != TokenBalance?.Contract ||
+        //                                           args.TokenId != TokenBalance?.TokenId)) return;
                 
-                await Task.Run(async () =>
-                {
-                    await UpdateBalanceAsync();
-                    await LoadTransfersAsync();
-                });
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "Balance updated event handler error for tezos token {@Token}", CurrencyCode);
-            }
-        }
+        //        await Task.Run(async () =>
+        //        {
+        //            await UpdateBalanceAsync();
+        //            await LoadTransfersAsync();
+        //        });
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log.Error(e, "Balance updated event handler error for tezos token {@Token}", CurrencyCode);
+        //    }
+        //}
 
-        public void SubscribeToUpdates()
-        {
-            _app.Account.BalanceUpdated += OnBalanceUpdatedEventHandler;
+        //public void SubscribeToUpdates()
+        //{
+        //    _app.Account.BalanceUpdated += OnBalanceUpdatedEventHandler;
             
-            if (_account.Wallet.Network == Network.TestNet)
-                return;
+        //    if (_account.Wallet.Network == Network.TestNet)
+        //        return;
             
-            if (TokenBalance.IsNft) 
-                return;
+        //    if (TokenBalance.IsNft) 
+        //        return;
             
-            _app.QuotesProvider.QuotesUpdated += OnQuotesUpdatedEventHandler;
-        }
+        //    _app.QuotesProvider.QuotesUpdated += OnQuotesUpdatedEventHandler;
+        //}
 
         private void OnQuotesUpdatedEventHandler(object sender, EventArgs args)
         {

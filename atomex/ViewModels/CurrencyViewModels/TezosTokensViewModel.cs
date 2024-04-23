@@ -12,6 +12,7 @@ using atomex.Resources;
 using atomex.Views.TezosTokens;
 using Atomex;
 using Atomex.Blockchain.Tezos;
+using Atomex.Blockchain.Tezos.Tzkt;
 using Atomex.Client.Common;
 using Atomex.Wallet;
 using Atomex.Wallet.Abstract;
@@ -270,19 +271,19 @@ namespace atomex.ViewModels.CurrencyViewModels
             Contracts?.Clear();
         }
 
-        private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
-        {
-            try
-            {
-                if (!args.IsTokenUpdate || (args.TokenContract != null && Contracts == null)) return;
+        //private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
+        //{
+        //    try
+        //    {
+        //        if (!args.IsTokenUpdate || (args.TokenContract != null && Contracts == null)) return;
 
-                await Task.Run(async () => await ReloadTokenContractsAsync());
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "Account balance updated event handler error");
-            }
-        }
+        //        await Task.Run(async () => await ReloadTokenContractsAsync());
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log.Error(e, "Account balance updated event handler error");
+        //    }
+        //}
 
         private async Task GetTokensAsync()
         {

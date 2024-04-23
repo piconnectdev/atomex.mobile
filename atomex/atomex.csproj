@@ -12,16 +12,16 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Numerics"  Version="4.5.0"/>
-    <Reference Include="System.Numerics.Vectors" Version="4.5.0"/>
+    <Reference Include="System.Numerics" Version="4.5.0" />
+    <Reference Include="System.Numerics.Vectors" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Private.ServiceModel" Version="4.7.0"/>
+    <PackageReference Include="System.Private.ServiceModel" Version="4.10.0" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="8.0.0"/>
+    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
     <PackageReference Include="System.Text.Json" Version="8.0.0" />
-    <PackageReference Include="PusherClient" Version="2.1.0" />
-    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="PusherClient" Version="2.2.1" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />

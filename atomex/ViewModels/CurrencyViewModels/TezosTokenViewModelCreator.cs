@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using Atomex;
 using Atomex.Blockchain.Tezos;
+using Atomex.Blockchain.Tezos.Tzkt;
 using Atomex.Wallet.Tezos;
 
 namespace atomex.ViewModels.CurrencyViewModels

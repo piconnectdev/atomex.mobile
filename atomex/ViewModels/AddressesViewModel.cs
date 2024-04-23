@@ -9,7 +9,7 @@ using atomex.Resources;
 using atomex.Views;
 using Atomex;
 using Atomex.Blockchain.Tezos;
-using Atomex.Blockchain.Tezos.Internal;
+using Atomex.Blockchain.Tezos.Abstract;
 using Atomex.Common;
 using Atomex.Core;
 using Atomex.Cryptography;
@@ -24,6 +24,9 @@ using Serilog;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Atomex.Wallets.Abstract;
+using Atomex.Wallets;
+using Atomex.Blockchain;
 
 namespace atomex.ViewModels
 {
@@ -272,27 +275,27 @@ namespace atomex.ViewModels
                 _navigationService?.ShowPage(new SelectAddressPage(selectAddressViewModel), TabNavigation.Portfolio);
             });
 
-        private void SubscribeToServices()
-        {
-            _app.Account.BalanceUpdated += OnBalanceUpdatedEventHandler;
-        }
+        //private void SubscribeToServices()
+        //{
+        //    _app.Account.BalanceUpdated += OnBalanceUpdatedEventHandler;
+        //}
 
-        private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
-        {
-            try
-            {
-                if ((args.Currency != null && _currency.Name == args.Currency) ||
-                    (args.IsTokenUpdate && (args.TokenContract == null ||
-                                            (args.TokenContract == _tokenContract && args.TokenId == _tokenId))))
-                {
-                    await ReloadAddresses();
-                }
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "Reload addresses event handler error");
-            }
-        }
+        //private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
+        //{
+        //    try
+        //    {
+        //        if ((args.Currency != null && _currency.Name == args.Currency) ||
+        //            (args.IsTokenUpdate && (args.TokenContract == null ||
+        //                                    (args.TokenContract == _tokenContract && args.TokenId == _tokenId))))
+        //        {
+        //            await ReloadAddresses();
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log.Error(e, "Reload addresses event handler error");
+        //    }
+        //}
 
         public async Task ReloadAddresses()
         {

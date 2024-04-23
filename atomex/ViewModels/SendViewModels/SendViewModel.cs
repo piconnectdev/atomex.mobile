@@ -22,6 +22,7 @@ using ReactiveUI.Fody.Helpers;
 using Serilog;
 using Xamarin.Forms;
 using static atomex.Models.Message;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels.SendViewModels
 {

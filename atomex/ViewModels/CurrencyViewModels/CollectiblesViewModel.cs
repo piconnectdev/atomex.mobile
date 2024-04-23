@@ -20,6 +20,7 @@ using ReactiveUI.Fody.Helpers;
 using Serilog;
 using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Atomex.Blockchain.Tezos.Tzkt;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {
@@ -114,28 +115,28 @@ namespace atomex.ViewModels.CurrencyViewModels
             _ = ReloadTokenContractsAsync();
         }
 
-        private void OnAtomexClientChanged(object sender, AtomexClientChangedEventArgs args)
-        {
-            if (_app.Account != null) return;
+        //private void OnAtomexClientChanged(object sender, AtomexClientChangedEventArgs args)
+        //{
+        //    if (_app.Account != null) return;
 
-            _app.AtomexClientChanged -= OnAtomexClientChanged;
-            Contracts?.Clear();
-        }
+        //    _app.AtomexClientChanged -= OnAtomexClientChanged;
+        //    Contracts?.Clear();
+        //}
 
-        private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
-        {
-            try
-            {
-                if (args.IsTokenUpdate &&
-                    (args.TokenContract == null || (Contracts != null && Contracts.Select(c => c.Address)
-                        .Contains(args.TokenContract))))
-                    await Task.Run(async () => await ReloadTokenContractsAsync());
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "Tezos collectibles balance updated event handler error");
-            }
-        }
+        //private async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
+        //{
+        //    try
+        //    {
+        //        if (args.IsTokenUpdate &&
+        //            (args.TokenContract == null || (Contracts != null && Contracts.Select(c => c.Address)
+        //                .Contains(args.TokenContract))))
+        //            await Task.Run(async () => await ReloadTokenContractsAsync());
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log.Error(e, "Tezos collectibles balance updated event handler error");
+        //    }
+        //}
 
         private async Task ReloadTokenContractsAsync()
         {

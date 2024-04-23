@@ -14,7 +14,7 @@ using atomex.Resources;
 using atomex.Views.Delegate;
 using Atomex;
 using Atomex.Blockchain.Tezos;
-using Atomex.Blockchain.Tezos.Internal;
+using Atomex.Blockchain.Tezos.Abstract;
 using Atomex.Common;
 using Atomex.Core;
 using Atomex.MarketData.Abstract;
@@ -51,7 +51,7 @@ namespace atomex.ViewModels
         [Reactive] public bool UseDefaultFee { get; set; }
         [Reactive] public string SearchPattern { get; set; }
         [Reactive] public DelegationSortField CurrentSortField { get; set; }
-        [Reactive] public SortDirection CurrentSortDirection { get; set; }
+        [Reactive] public Atomex.Common.SortDirection CurrentSortDirection { get; set; }
         [Reactive] public Message Message { get; set; }
         [Reactive] public bool IsLoading { get; set; }
         [Reactive] public string SortButtonName { get; set; }

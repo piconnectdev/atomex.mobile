@@ -26,6 +26,7 @@ using Serilog;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {
@@ -187,24 +188,24 @@ namespace atomex.ViewModels.CurrencyViewModels
             }
         }
 
-        protected virtual async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
-        {
-            try
-            {
-                if (args.Currency != Currency.Name)
-                    return;
+        //protected virtual async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
+        //{
+        //    try
+        //    {
+        //        if (args.Currency != Currency.Name)
+        //            return;
 
-                await Task.Run(async () =>
-                {
-                    await UpdateBalanceAsync();
-                    await LoadTransactionsAsync();
-                });
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "Error for currency {@Currency}", args?.Currency);
-            }
-        }
+        //        await Task.Run(async () =>
+        //        {
+        //            await UpdateBalanceAsync();
+        //            await LoadTransactionsAsync();
+        //        });
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log.Error(e, "Error for currency {@Currency}", args?.Currency);
+        //    }
+        //}
 
         public async Task UpdateBalanceAsync()
         {

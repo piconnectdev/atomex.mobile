@@ -8,7 +8,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Atomex;
-using Atomex.Blockchain.Tezos.Internal;
+using Atomex.Blockchain.Tezos.Abstract;
 using atomex.Common;
 using Atomex.Common;
 using Atomex.Core;
@@ -26,6 +26,7 @@ using Serilog;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using DecimalExtensions = Atomex.Common.DecimalExtensions;
+using Atomex.Wallets;
 
 namespace atomex.ViewModels.DappsViewModels
 {

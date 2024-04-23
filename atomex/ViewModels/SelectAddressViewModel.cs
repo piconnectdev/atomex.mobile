@@ -22,6 +22,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using ZXing;
 using static atomex.Models.Message;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels
 {

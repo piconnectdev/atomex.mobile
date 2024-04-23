@@ -7,7 +7,7 @@ using atomex.Views;
 using atomex.Views.Delegate;
 using Atomex;
 using Atomex.Blockchain.Tezos;
-using Atomex.Blockchain.Tezos.Internal;
+using Atomex.Blockchain.Tezos;
 using Atomex.Blockchain.Tezos.Tzkt;
 using Atomex.Core;
 using atomex.ViewModels.DappsViewModels;
@@ -16,6 +16,7 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
 using Xamarin.Forms;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {
@@ -183,24 +184,24 @@ namespace atomex.ViewModels.CurrencyViewModels
             NavigationService?.ClosePopup();
         }
 
-        protected override async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
-        {
-            try
-            {
-                if (Currency?.Name != args?.Currency) return;
+        //protected override async void OnBalanceUpdatedEventHandler(object sender, CurrencyEventArgs args)
+        //{
+        //    try
+        //    {
+        //        if (Currency?.Name != args?.Currency) return;
 
-                await Task.Run(async () =>
-                {
-                    await UpdateBalanceAsync();
-                    await LoadTransactionsAsync();
-                    await LoadDelegationInfoAsync();
-                });
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, "Account balance updated event handler error");
-            }
-        }
+        //        await Task.Run(async () =>
+        //        {
+        //            await UpdateBalanceAsync();
+        //            await LoadTransactionsAsync();
+        //            await LoadDelegationInfoAsync();
+        //        });
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Log.Error(e, "Account balance updated event handler error");
+        //    }
+        //}
 
         public override void Reset()
         {

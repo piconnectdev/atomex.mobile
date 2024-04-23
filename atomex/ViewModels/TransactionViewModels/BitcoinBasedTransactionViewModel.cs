@@ -1,4 +1,4 @@
-﻿using Atomex.Blockchain.BitcoinBased;
+﻿using Atomex.Blockchain.Bitcoin;
 using Atomex.Blockchain.Abstract;
 using Atomex;
 
@@ -7,7 +7,7 @@ namespace atomex.ViewModels.TransactionViewModels
     public class BitcoinBasedTransactionViewModel : TransactionViewModel
     {
         public BitcoinBasedTransactionViewModel(
-            IBitcoinBasedTransaction tx,
+            BitcoinTransaction tx,
             BitcoinBasedConfig bitcoinBasedConfig,
             INavigationService navigationService)
             : base(tx, bitcoinBasedConfig, tx.Amount / bitcoinBasedConfig.DigitsMultiplier,
@@ -19,7 +19,7 @@ namespace atomex.ViewModels.TransactionViewModels
         }
 
         private static decimal GetFee(
-            IBitcoinBasedTransaction tx,
+            BitcoinTransaction tx,
             BitcoinBasedConfig bitcoinBasedConfig)
         {
             return tx.Fees != null

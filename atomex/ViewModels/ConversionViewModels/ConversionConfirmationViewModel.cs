@@ -18,6 +18,7 @@ using static atomex.Models.SnackbarMessage;
 using Atomex.Client.Entities;
 using atomex.ViewModels.CurrencyViewModels;
 using Currencies = Atomex.Currencies;
+using Atomex.Wallets;
 
 namespace atomex.ViewModels.ConversionViewModels
 {

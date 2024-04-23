@@ -12,6 +12,7 @@ using Atomex.ViewModels;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Xamarin.Essentials;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels
 {

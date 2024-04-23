@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Atomex.Core;
+using Atomex.Wallets.Abstract;
 using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;

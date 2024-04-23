@@ -19,7 +19,7 @@ using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using System.Reactive.Linq;
 using atomex.Common;
-using Atomex.Blockchain.BitcoinBased;
+using Atomex.Blockchain;
 using Atomex.Wallet.BitcoinBased;
 using Atomex.ViewModels;
 using atomex.Models;
@@ -28,6 +28,7 @@ using static atomex.Models.Message;
 using Atomex.MarketData.Common;
 using Atomex.Client.Common;
 using atomex.ViewModels.CurrencyViewModels;
+using Atomex.Wallets.Abstract;
 
 namespace atomex.ViewModels.ConversionViewModels
 {
