@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Resources;
 using System.Threading;
 using atomex.Resources;
-using Xamarin.Essentials;
+using Microsoft.Maui.Storage;
 
 namespace atomex.Helpers
 {

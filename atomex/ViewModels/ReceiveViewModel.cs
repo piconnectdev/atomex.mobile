@@ -11,8 +11,8 @@ using atomex.Models;
 using Atomex.ViewModels;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Xamarin.Essentials;
 using Atomex.Wallets.Abstract;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
 
 namespace atomex.ViewModels
 {

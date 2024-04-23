@@ -8,7 +8,7 @@ using Atomex.Blockchain.Abstract;
 using Atomex.Core;
 using Atomex.Wallets.Abstract;
 using ReactiveUI;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace atomex.ViewModels.TransactionViewModels
 {

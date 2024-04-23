@@ -11,8 +11,9 @@ using Atomex.MarketData.Abstract;
 using atomex.ViewModels.CurrencyViewModels;
 using Atomex.Wallet.Ethereum;
 using Serilog;
-using Xamarin.Forms;
 using static atomex.Models.Message;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.SendViewModels
 {

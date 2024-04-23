@@ -6,11 +6,12 @@ using Sentry;
 using Serilog;
 using UIKit;
 using UserNotifications;
-using Xamarin.Forms;
 using atomex.Common.FileSystem;
 using atomex.Services;
 using Atomex.Common;
 using Serilog.Events;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.iOS
 {
@@ -18,7 +19,7 @@ namespace atomex.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate,
+    public partial class AppDelegate : Microsoft.Maui.MauiUIApplicationDelegate,
         IUNUserNotificationCenterDelegate
     {
         //

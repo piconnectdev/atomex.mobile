@@ -1,6 +1,6 @@
 ﻿using atomex.ViewModels;
 using atomex.ViewModels.CurrencyViewModels;
-using Rg.Plugins.Popup.Pages;
+using RGPopup.Maui.Pages;
 
 namespace atomex.Views.Popup
 {

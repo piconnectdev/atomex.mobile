@@ -20,8 +20,9 @@ using Atomex.Wallet.Tezos;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
-using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {
@@ -125,7 +126,7 @@ namespace atomex.ViewModels.CurrencyViewModels
                             .ToList();
                     });
 
-                    await Device.InvokeOnMainThreadAsync(() =>
+                    Device.InvokeOnMainThreadAsync(() =>
                     {
                         DisplayedTokens = new ObservableCollection<TezosTokenViewModel>(tokens);
                         QtyDisplayedTokens = tokens.Count;
@@ -240,7 +241,7 @@ namespace atomex.ViewModels.CurrencyViewModels
                         DisplayedTokens = new ObservableCollection<TezosTokenViewModel>(resultTokens);
                         QtyDisplayedTokens += tokens.Count;
                     }
-                );
+);
             }
             catch (Exception e)
             {
@@ -412,7 +413,7 @@ namespace atomex.ViewModels.CurrencyViewModels
                         DisplayedTokens = new ObservableCollection<TezosTokenViewModel>(tokens);
                         QtyDisplayedTokens = tokens.Count;
                     }
-                );
+);
             }
             catch (Exception e)
             {

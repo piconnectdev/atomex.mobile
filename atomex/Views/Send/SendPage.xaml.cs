@@ -1,6 +1,7 @@
 ﻿using System;
 using atomex.ViewModels.SendViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views.Send
 {

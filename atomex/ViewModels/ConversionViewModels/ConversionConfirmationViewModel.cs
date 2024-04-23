@@ -13,12 +13,13 @@ using Atomex.Wallet.Abstract;
 using ReactiveUI;
 using Serilog;
 using atomex.Common;
-using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
 using Atomex.Client.Entities;
 using atomex.ViewModels.CurrencyViewModels;
 using Currencies = Atomex.Currencies;
 using Atomex.Wallets;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.ConversionViewModels
 {
@@ -118,7 +119,7 @@ namespace atomex.ViewModels.ConversionViewModels
                     _navigationService?.DisplaySnackBar(
                         MessageType.Error,
                         "An error has occurred while sending swap")
-                );
+);
                 Log.Error(e, "Swap error");
             }
             finally

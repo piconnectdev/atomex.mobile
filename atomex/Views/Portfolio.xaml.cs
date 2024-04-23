@@ -1,5 +1,6 @@
-﻿using Xamarin.Forms;
-using atomex.ViewModels;
+﻿using atomex.ViewModels;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {

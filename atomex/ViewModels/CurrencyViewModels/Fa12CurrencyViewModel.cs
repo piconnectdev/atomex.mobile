@@ -5,7 +5,6 @@ using Atomex;
 using Atomex.TezosTokens;
 using Atomex.Wallet.Tezos;
 using Serilog;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using Atomex.Common;
 using Atomex.Core;
@@ -16,6 +15,8 @@ using atomex.Resources;
 using atomex.ViewModels.TransactionViewModels;
 using Atomex.Wallet;
 using Atomex.Wallets.Abstract;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {

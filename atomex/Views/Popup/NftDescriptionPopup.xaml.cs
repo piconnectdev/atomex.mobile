@@ -1,6 +1,6 @@
 using atomex.ViewModels.CurrencyViewModels;
-using Rg.Plugins.Popup.Pages;
-using Xamarin.Forms.Xaml;
+using RGPopup.Maui.Pages;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace atomex.Views.Popup
 {

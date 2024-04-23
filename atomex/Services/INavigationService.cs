@@ -3,9 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Atomex.Core;
 using Atomex.Wallets.Abstract;
-using Rg.Plugins.Popup.Pages;
-using Xamarin.Forms;
+using RGPopup.Maui.Pages;
 using static atomex.Models.SnackbarMessage;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex
 {

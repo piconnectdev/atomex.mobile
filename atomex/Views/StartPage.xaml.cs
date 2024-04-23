@@ -4,14 +4,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Atomex.Core;
 using atomex.ViewModels;
-using Rg.Plugins.Popup.Pages;
+using RGPopup.Maui.Pages;
 using Serilog;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui.Extensions;
 using Xamarin.CommunityToolkit.UI.Views.Options;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
 using Atomex.Wallets.Abstract;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {
@@ -65,19 +68,19 @@ namespace atomex.Views
                         break;
                 }
 
-                snackBarBgColorName = Application.Current.RequestedTheme == OSAppTheme.Dark
+                snackBarBgColorName = Application.Current.RequestedTheme == AppTheme.Dark
                     ? snackBarBgColorName + "Dark"
                     : snackBarBgColorName;
-                snackBarTextColorName = Application.Current.RequestedTheme == OSAppTheme.Dark
+                snackBarTextColorName = Application.Current.RequestedTheme == AppTheme.Dark
                     ? snackBarTextColorName + "Dark"
                     : snackBarTextColorName;
 
                 Application.Current.Resources.TryGetValue(snackBarBgColorName, out var bgColor);
                 Application.Current.Resources.TryGetValue(snackBarTextColorName, out var txtColor);
-                
-                txtColor ??= Color.Black;
-                bgColor ??= Color.White;
-                
+
+                txtColor ??= Colors.Black;
+                bgColor ??= Colors.White;
+
                 var textColor = (Color)txtColor;
                 var backgroundColor = (Color)bgColor;
 
@@ -94,7 +97,7 @@ namespace atomex.Views
                     new SnackBarActionOptions
                     {
                         ForegroundColor = textColor,
-                        BackgroundColor = Color.Transparent,
+                        BackgroundColor = Colors.Transparent,
                         Font = Font.SystemFontOfSize(17),
                         Text = buttonText,
                         Padding = new Thickness(20, 16),

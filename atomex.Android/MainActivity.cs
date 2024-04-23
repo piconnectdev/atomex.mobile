@@ -14,12 +14,13 @@ using Plugin.Fingerprint;
 using Sentry;
 using Serilog;
 using Serilog.Events;
-using Xamarin.Forms;
 using atomex.Common.FileSystem;
 using Atomex.Common;
 using Atomex.TzktEvents;
 using Firebase;
 using Xamarin.Forms.Platform.Android.AppLinks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Droid
 {
@@ -47,7 +48,7 @@ namespace atomex.Droid
         DataPathPrefix = "",
         DataHost = "",
         AutoVerify = true)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : Microsoft.Maui.MauiAppCompatActivity
     {
         public static MainActivity Instance { get; private set; }
         private App _app { get; set; }

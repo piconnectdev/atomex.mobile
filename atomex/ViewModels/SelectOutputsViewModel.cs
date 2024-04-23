@@ -18,9 +18,10 @@ using atomex.ViewModels.Abstract;
 using Atomex.Wallet.BitcoinBased;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using Atomex.Wallets;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {

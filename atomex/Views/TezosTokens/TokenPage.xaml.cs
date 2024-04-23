@@ -1,5 +1,6 @@
 ﻿using atomex.ViewModels.CurrencyViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views.TezosTokens
 {

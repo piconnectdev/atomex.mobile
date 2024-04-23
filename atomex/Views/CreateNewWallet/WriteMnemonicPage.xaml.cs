@@ -1,6 +1,7 @@
 ﻿using System;
 using atomex.ViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views.CreateNewWallet
 {
@@ -32,6 +33,7 @@ namespace atomex.Views.CreateNewWallet
 
             if (args.IsFocused)
             {
+                // TODO Xamarin.Forms.Device.StartTimer is no longer supported. Use Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 Device.StartTimer(TimeSpan.FromSeconds(0.25), () =>
                 {
                     Page.ScrollToAsync(0, Editor.Height, true);
@@ -40,6 +42,7 @@ namespace atomex.Views.CreateNewWallet
             }
             else
             {
+                // TODO Xamarin.Forms.Device.StartTimer is no longer supported. Use Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 Device.StartTimer(TimeSpan.FromSeconds(0.25), () =>
                 {
                     Page.ScrollToAsync(0, 0, true);

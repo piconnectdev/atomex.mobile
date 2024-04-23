@@ -18,8 +18,9 @@ using Atomex.Wallet.Tezos;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
-using Xamarin.Forms;
 using static atomex.Models.Message;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.SendViewModels
 {
@@ -72,7 +73,7 @@ namespace atomex.ViewModels.SendViewModels
                 .GetUnspentTokenAddressesAsync()
                 .ConfigureAwait(false);
 
-            await Device.InvokeOnMainThreadAsync(() =>
+            await await Device.InvokeOnMainThreadAsync(() =>
             {
                 HasTokens = unpsentTokens.Any(); // todo: use tokens count to calculate reserved fee more accurately
             }).ConfigureAwait(false);
@@ -85,7 +86,7 @@ namespace atomex.ViewModels.SendViewModels
                     .ConfigureAwait(false))
                 .Where(s => s.IsActive && (s.SoldCurrency == Currency.Name || s.PurchasedCurrency == Currency.Name));
 
-            await Device.InvokeOnMainThreadAsync(() =>
+            await await Device.InvokeOnMainThreadAsync(() =>
             {
                 HasActiveSwaps = activeSwaps.Any(); // todo: use swaps count to calculate reserved fee more accurately
             }).ConfigureAwait(false);

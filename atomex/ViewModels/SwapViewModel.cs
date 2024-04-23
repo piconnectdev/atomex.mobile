@@ -8,9 +8,10 @@ using atomex.Resources;
 using Atomex.Abstract;
 using Atomex.Core;
 using atomex.ViewModels;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using static Atomex.ViewModels.Helpers;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {

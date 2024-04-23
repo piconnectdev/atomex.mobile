@@ -1,5 +1,6 @@
 ﻿using atomex.ViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views.BuyCurrency
 {

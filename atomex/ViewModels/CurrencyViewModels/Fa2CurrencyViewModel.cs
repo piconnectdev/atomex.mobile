@@ -13,9 +13,10 @@ using atomex.ViewModels.TransactionViewModels;
 using Atomex.Wallet;
 using Atomex.Wallet.Tezos;
 using Serilog;
-using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
 using Atomex.Wallets.Abstract;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {

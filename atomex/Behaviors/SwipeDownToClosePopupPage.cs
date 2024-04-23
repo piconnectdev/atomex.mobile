@@ -1,6 +1,7 @@
 ﻿using System;
 using Serilog;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Behaviors
 {
@@ -100,6 +101,7 @@ namespace atomex.Behaviors
                         TotalY = e.TotalY;
                         if (TotalY > 0)
                         {
+                            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                             if (Device.RuntimePlatform == Device.Android)
                             {
                                 v.TranslateTo(0, TotalY + v.TranslationY, 20, Easing.Linear);

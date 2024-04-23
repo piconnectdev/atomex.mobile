@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
 using Application = Xamarin.Forms.Application;
 using atomex.CustomElements;
 using atomex.Resources;
@@ -10,10 +9,10 @@ using CurrenciesPage = atomex.Views.BuyCurrency.CurrenciesPage;
 using NavigationPage = Xamarin.Forms.NavigationPage;
 using atomex.Views.CreateSwap;
 using Atomex.Core;
-using Xamarin.CommunityToolkit.UI.Views.Options;
+//using Xamarin.CommunityToolkit.UI.Views.Options;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui.Extensions;
 using System;
 using System.Threading;
 using atomex.ViewModels;
@@ -22,10 +21,14 @@ using atomex.ViewModels.CurrencyViewModels;
 using atomex.Views.Collectibles;
 using atomex.Views.TezosTokens;
 using static atomex.Models.SnackbarMessage;
-using Rg.Plugins.Popup.Services;
-using Rg.Plugins.Popup.Pages;
+using RGPopup.Maui.Services;
+using RGPopup.Maui.Pages;
 using Serilog;
 using Atomex.Wallets.Abstract;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {
@@ -83,7 +86,8 @@ namespace atomex.Views
 
             Children.Add(_navigationPortfolioPage);
             Children.Add(_navigationConversionPage);
-            
+
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
             {
                 Children.Add(_navigationBuyPage);
@@ -361,18 +365,18 @@ namespace atomex.Views
                         break;
                 }
 
-                snackBarBgColorName = Application.Current.RequestedTheme == OSAppTheme.Dark
+                snackBarBgColorName = Application.Current.RequestedTheme == AppTheme.Dark
                     ? snackBarBgColorName + "Dark"
                     : snackBarBgColorName;
-                snackBarTextColorName = Application.Current.RequestedTheme == OSAppTheme.Dark
+                snackBarTextColorName = Application.Current.RequestedTheme == AppTheme.Dark
                     ? snackBarTextColorName + "Dark"
                     : snackBarTextColorName;
 
                 Application.Current.Resources.TryGetValue(snackBarBgColorName, out var bgColor);
                 Application.Current.Resources.TryGetValue(snackBarTextColorName, out var txtColor);
 
-                txtColor ??= Color.Black;
-                bgColor ??= Color.White;
+                txtColor ??= Colors.Black;
+                bgColor ??= Colors.White;
 
                 var textColor = (Color)txtColor;
                 var backgroundColor = (Color)bgColor;
@@ -390,7 +394,7 @@ namespace atomex.Views
                     new SnackBarActionOptions
                     {
                         ForegroundColor = textColor,
-                        BackgroundColor = Color.Transparent,
+                        BackgroundColor = Colors.Transparent,
                         Font = Font.SystemFontOfSize(17),
                         Text = buttonText,
                         Padding = new Thickness(20, 16),

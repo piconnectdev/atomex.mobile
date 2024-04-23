@@ -20,8 +20,9 @@ using atomex.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex
 {

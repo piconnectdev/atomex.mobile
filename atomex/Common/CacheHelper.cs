@@ -2,9 +2,9 @@
 using System.IO;
 using System.Threading.Tasks;
 
-using Xamarin.Forms;
-
 using Atomex.Common;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Common
 {
