@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using atomex.ViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views.BuyCurrency
 {
@@ -12,7 +14,7 @@ namespace atomex.Views.BuyCurrency
         public CurrenciesPage(BuyViewModel buyViewModel)
         {
             InitializeComponent();
-            string selectedColorName = Application.Current.RequestedTheme == OSAppTheme.Dark
+            string selectedColorName = Application.Current.RequestedTheme == AppTheme.Dark
                 ? "ListViewSelectedBackgroundColorDark"
                 : "ListViewSelectedBackgroundColor";
 

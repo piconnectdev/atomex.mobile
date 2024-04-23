@@ -2,7 +2,8 @@
 using atomex.ViewModels.ConversionViewModels;
 using atomex.ViewModels.DappsViewModels;
 using atomex.ViewModels.SendViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {

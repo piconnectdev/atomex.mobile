@@ -31,10 +31,12 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
 using Serilog.Extensions.Logging;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using Constants = Beacon.Sdk.Constants;
 using Hex = Atomex.Common.Hex;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.DappsViewModels
 {
@@ -134,6 +136,7 @@ namespace atomex.ViewModels.DappsViewModels
                     var pathToWalletFolder = new DirectoryInfo(_app.Account.Wallet.PathToWallet).Parent?.FullName;
                     var path = Path.Combine(pathToWalletFolder!, "beacon.db");
 
+                    // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                     var options = new BeaconOptions
                     {
                         AppName = "Atomex mobile",
@@ -762,7 +765,7 @@ namespace atomex.ViewModels.DappsViewModels
                     .ReadAllAsync()
                     .Result;
 
-                Device.InvokeOnMainThreadAsync(() =>
+                await Device.InvokeOnMainThreadAsync(() =>
                 {
                     Dapps = new ObservableCollection<DappViewModel>(permissionInfoList
                         .Select(permissionInfo => new DappViewModel

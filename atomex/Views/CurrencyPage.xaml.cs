@@ -1,7 +1,8 @@
-﻿using Xamarin.Forms;
-using System;
+﻿using System;
 using System.Linq;
 using atomex.ViewModels.CurrencyViewModels;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {

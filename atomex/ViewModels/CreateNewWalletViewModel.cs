@@ -20,9 +20,12 @@ using NBitcoin;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using Network = Atomex.Core.Network;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {
@@ -275,6 +278,7 @@ namespace atomex.ViewModels
 
             string walletsFolder = null;
             string pathToDocuments;
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
@@ -463,6 +467,7 @@ namespace atomex.ViewModels
                 if (!_wallet.SaveToFile(_wallet.PathToWallet, StoragePassword))
                     throw new Exception("Can't create wallet file");
 
+                // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 var clientType = Device.RuntimePlatform switch
                 {
                     Device.iOS => ClientType.iOS,

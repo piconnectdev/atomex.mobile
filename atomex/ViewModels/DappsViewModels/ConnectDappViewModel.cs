@@ -6,9 +6,11 @@ using atomex.Resources;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using ZXing;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.DappsViewModels
 {
@@ -86,13 +88,14 @@ namespace atomex.ViewModels.DappsViewModels
 
                         if (permissions != PermissionStatus.Granted)
                         {
+                            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                             if (Device.RuntimePlatform == Device.iOS)
                                 AppInfo.ShowSettingsUI();
                             else
                                 permissions = await Permissions.RequestAsync<Permissions.Camera>();
                         }
 
-                        await Device.InvokeOnMainThreadAsync(() =>
+                        Device.InvokeOnMainThreadAsync(() =>
                         {
                             CameraPermissionDenied = permissions != PermissionStatus.Granted;
                             this.RaisePropertyChanged(nameof(CameraPermissionDenied));
@@ -156,7 +159,7 @@ namespace atomex.ViewModels.DappsViewModels
                 return;
             }
 
-            Device.InvokeOnMainThreadAsync(async () =>
+            await Device.InvokeOnMainThreadAsync(async () =>
             {
                 string key = "data=";
                 int indexOfChar = ScanResult.Text.IndexOf(key, StringComparison.CurrentCulture);

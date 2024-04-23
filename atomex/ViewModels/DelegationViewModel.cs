@@ -5,8 +5,9 @@ using Atomex.Blockchain.Tezos;
 using Atomex.Common;
 using atomex.Resources;
 using ReactiveUI;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {

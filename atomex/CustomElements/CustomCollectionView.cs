@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
 using Serilog;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.CustomElements
 {

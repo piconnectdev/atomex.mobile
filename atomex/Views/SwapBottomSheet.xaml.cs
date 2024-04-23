@@ -1,7 +1,8 @@
 ﻿using System;
 using atomex.ViewModels;
 using Rg.Plugins.Popup.Pages;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {

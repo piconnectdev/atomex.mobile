@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Atomex.Common;
 using System;
 using Serilog;
-using Xamarin.Forms;
 using Atomex.MarketData.Abstract;
 using System.Globalization;
 using System.Collections.ObjectModel;
@@ -28,6 +27,8 @@ using static atomex.Models.Message;
 using Atomex.MarketData.Common;
 using Atomex.Client.Common;
 using atomex.ViewModels.CurrencyViewModels;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.ConversionViewModels
 {

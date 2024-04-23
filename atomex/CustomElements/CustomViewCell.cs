@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.CustomElements
 {
@@ -8,7 +9,7 @@ namespace atomex.CustomElements
             BindableProperty.Create("SelectedBackgroundColor",
                                 typeof(Color),
                                 typeof(CustomViewCell),
-                                Color.Default);
+                                null);
 
         public Color SelectedBackgroundColor
         {

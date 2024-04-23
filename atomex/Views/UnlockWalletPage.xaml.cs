@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using atomex.ViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {
@@ -19,6 +20,7 @@ namespace atomex.Views
 
             if (args.IsFocused)
             {
+                // TODO Xamarin.Forms.Device.StartTimer is no longer supported. Use Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 Device.StartTimer(TimeSpan.FromSeconds(0.25), () =>
                 {
                     Page.ScrollToAsync(0, PasswordEntry.Height, true);
@@ -27,6 +29,7 @@ namespace atomex.Views
             }
             else
             {
+                // TODO Xamarin.Forms.Device.StartTimer is no longer supported. Use Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 Device.StartTimer(TimeSpan.FromSeconds(0.25), () =>
                 {
                     Page.ScrollToAsync(0, 0, true);

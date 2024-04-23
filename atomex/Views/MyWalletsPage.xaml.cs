@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using atomex.ViewModels;
-using Xamarin.Forms;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.Views
 {
@@ -17,7 +19,7 @@ namespace atomex.Views
         public MyWalletsPage(MyWalletsViewModel myWalletsViewModel)
         {
             InitializeComponent();
-            string selectedColorName = Application.Current.RequestedTheme == OSAppTheme.Dark
+            string selectedColorName = Application.Current.RequestedTheme == AppTheme.Dark
                 ? "ListViewSelectedBackgroundColorDark"
                 : "ListViewSelectedBackgroundColor";
 

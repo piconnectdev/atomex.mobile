@@ -23,9 +23,11 @@ using Newtonsoft.Json.Linq;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using DecimalExtensions = Atomex.Common.DecimalExtensions;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.DappsViewModels
 {

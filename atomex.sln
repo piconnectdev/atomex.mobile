@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "atomex.Android", "atomex.Android\atomex.Android.csproj", "{1EC5BCE2-278E-4135-B0A0-24A538DA933D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "atomex.Android", "atomex.Android\atomex.Android.csproj", "{1EC5BCE2-278E-4135-B0A0-24A538DA933D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "atomex.iOS", "atomex.iOS\atomex.iOS.csproj", "{FAF84F40-1F67-43E8-B04A-DEC03880862E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "atomex.iOS", "atomex.iOS\atomex.iOS.csproj", "{FAF84F40-1F67-43E8-B04A-DEC03880862E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "atomex", "atomex\atomex.csproj", "{6A6C43B1-1489-4B8D-AA37-941EF60E36F0}"
 EndProject

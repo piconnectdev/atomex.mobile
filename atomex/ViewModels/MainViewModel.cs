@@ -20,9 +20,10 @@ using atomex.ViewModels.DappsViewModels;
 using atomex.Views.Popup;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using Log = Serilog.Log;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {
@@ -55,6 +56,7 @@ namespace atomex.ViewModels
 
             SubscribeToServices();
 
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             var clientType = Device.RuntimePlatform switch
             {
                 Device.iOS => ClientType.iOS,

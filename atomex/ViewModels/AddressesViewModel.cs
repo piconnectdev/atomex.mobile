@@ -21,9 +21,10 @@ using Atomex.Wallet.Tezos;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {
@@ -177,7 +178,7 @@ namespace atomex.ViewModels
 
                     if (updatedViewModel == null) return;
 
-                    await Device.InvokeOnMainThreadAsync(() =>
+                    Device.InvokeOnMainThreadAsync(() =>
                     {
                         Balance = updatedViewModel.Balance;
                         TokenBalance = updatedViewModel?.TokenBalance;

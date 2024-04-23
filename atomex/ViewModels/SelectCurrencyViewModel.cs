@@ -7,7 +7,8 @@ using atomex.Models;
 using atomex.ViewModels.CurrencyViewModels;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {

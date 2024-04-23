@@ -2,7 +2,8 @@
 using atomex.Common;
 using Atomex.Common;
 using ReactiveUI;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels
 {

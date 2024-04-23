@@ -23,9 +23,10 @@ using Atomex.Wallet.Abstract;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Serilog;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex.ViewModels.CurrencyViewModels
 {
@@ -48,6 +49,7 @@ namespace atomex.ViewModels.CurrencyViewModels
         public bool HasTokens => CurrencyCode == TezosConfig.Xtz;
         public bool HasDapps => CurrencyCode == TezosConfig.Xtz;
         public bool CanBuy => BuyViewModel.Currencies.Contains(Currency?.Name) && 
+                              // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                               Device.RuntimePlatform != Device.iOS;
 
         public bool IsOpenCurrency { get; set; }
@@ -564,7 +566,7 @@ namespace atomex.ViewModels.CurrencyViewModels
                             resultGroups ?? new ObservableCollection<Grouping<TransactionViewModel>>());
                         QtyDisplayedTxs += txs.Count;
                     }
-                );
+);
             }
             catch (Exception e)
             {
@@ -645,7 +647,7 @@ namespace atomex.ViewModels.CurrencyViewModels
                         GroupedTransactions = new ObservableCollection<Grouping<TransactionViewModel>>(groups);
                         QtyDisplayedTxs = txs.Count;
                     }
-                );
+);
             }
             catch (Exception e)
             {

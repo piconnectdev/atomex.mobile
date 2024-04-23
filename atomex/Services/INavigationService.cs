@@ -3,8 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Atomex.Core;
 using Rg.Plugins.Popup.Pages;
-using Xamarin.Forms;
 using static atomex.Models.SnackbarMessage;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace atomex
 {
